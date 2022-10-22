@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IBookManagementService, BookManagementService>();
 builder.Services.AddControllers();
 
-var connectionString = builder.Configuration.GetConnectionString("BookManagerApi");
+var connectionString = builder.Configuration["BookManagerApiConnectionString"];
 if (builder.Environment.EnvironmentName == "Testing")
 {
     // in test environment use a fresh in-memory DB
